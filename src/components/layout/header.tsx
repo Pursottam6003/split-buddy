@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, DollarSign } from "lucide-react"
+import { Menu, X, DollarSign,IndianRupeeIcon } from "lucide-react"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -40,6 +40,7 @@ export default function Header() {
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
     { name: "History", href: "/history" },
+    { name: "Engineering", href: "/engineering" },
   ]
 
   return (
@@ -49,10 +50,12 @@ export default function Header() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <div className="h-8 w-8 rounded-md bg-blue-600 flex items-center justify-center mr-2">
-                <DollarSign className="h-5 w-5 text-white" />
+                <IndianRupeeIcon className="h-5 w-5 text-white" />
               </div>
-              <span className="text-2xl font-bold text-blue-600">Pay</span>
-              <span className="text-2xl font-bold text-gray-800">Together</span>
+              <span className="text-2xl font-bold text-blue-600">Splity</span>
+              <span className="text-2xl font-bold text-gray-800">.AI</span>
+
+
             </Link>
           </div>
 

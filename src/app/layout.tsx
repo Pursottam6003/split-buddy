@@ -1,17 +1,17 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import "./globals.css"
 import { ThemeProvider } from "@/components/layout/theme-provider"
 import Header from "@/components/layout/header"
 import Footer from "@/components/layout/footer"
 
-import './global.css' // Ensure global styles are imported
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "SplitBuddy - Split Payments with buddies",
-  description: "Split expenses with roommates, friends, and family effortlessly.",
-  generator: 'v0.dev'
+  title: "PayTogether - Split Payments Made Easy",
+  description: "Split expenses with friends, family, and roommates effortlessly.",
+    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -33,3 +33,7 @@ export default function RootLayout({
     </html>
   )
 }
+
+
+
+import './globals.css'
