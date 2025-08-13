@@ -11,8 +11,8 @@ export default function Footer() {
               <div className="h-8 w-8 rounded-md bg-blue-600 flex items-center justify-center mr-2">
                 <DollarSign className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-blue-600">Pay</span>
-              <span className="text-xl font-bold text-gray-800">Together</span>
+              <span className="text-xl font-bold text-blue-600">Splity</span>
+              <span className="text-xl font-bold text-gray-800">.AI</span>
             </Link>
             <p className="mt-2 text-sm text-gray-600">
               Split expenses with friends, family, and roommates effortlessly.
@@ -50,11 +50,11 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               <li className="flex items-center text-gray-600">
                 <Mail className="h-5 w-5 mr-2 text-blue-500" />
-                <span>kbtcoe.org</span>
+                <span>splity.ai@hotmail.com</span>
               </li>
               <li className="flex items-center text-gray-600">
                 <Phone className="h-5 w-5 mr-2 text-blue-500" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 (555) 123-4567</span>
               </li>
             </ul>
           </div>
@@ -77,7 +77,7 @@ export default function Footer() {
 
         <div className="mt-8 border-t border-gray-200 pt-6">
           <p className="text-sm text-gray-500 text-center">
-            &copy; {new Date().getFullYear()} PayTogether. All rights reserved.
+            &copy; {new Date().getFullYear()} Splity.ai All rights reserved.
           </p>
         </div>
       </div>
