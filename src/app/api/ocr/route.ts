@@ -1,35 +1,40 @@
-async function extractTextFromImage(imageFile) {
-  const formData = new FormData();
-  formData.append('file', imageFile);
-  
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function POST(request: NextRequest) {
   try {
+    const formData = await request.formData();
+    const file = formData.get('file') as File;
+    
+    if (!file) {
+      return NextResponse.json(
+        { success: false, error: 'No file provided' },
+        { status: 400 }
+      );
+    }
+
+    // Create FormData for the OCR service
+    const ocrFormData = new FormData();
+    ocrFormData.append('file', file);
+    
+    // Call your OCR service
     const response = await fetch('http://localhost:8000/ocr?lang=en', {
       method: 'POST',
-      body: formData
-      // Don't set Content-Type header - browser will set it automatically
+      body: ocrFormData
     });
     
     if (!response.ok) {
       throw new Error(`OCR failed: ${response.statusText}`);
     }
     
-    return await response.json();
+    const result = await response.json();
+    return NextResponse.json({ success: true, result });
+    
   } catch (error) {
     console.error('OCR processing error:', error);
-    return { success: false, error: error.message };
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    return NextResponse.json(
+      { success: false, error: errorMessage },
+      { status: 500 }
+    );
   }
 }
-
-// Usage example:
-const fileInput = document.getElementById('image-upload');
-fileInput.addEventListener('change', async (e) => {
-  const file = e.target.files[0];
-  const result = await extractTextFromImage(file);
-  
-  if (result.success) {
-    console.log('Extracted text:', result.result.full_text);
-    // Display results in your UI
-  } else {
-    // Show error message
-  }
-});
